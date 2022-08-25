@@ -1,0 +1,134 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+
+    .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #a1c4fd;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255))
+    }
+
+    .bg-indigo {
+    background-color: rgb(170, 245, 140);
+    }
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+
+    .active-pink-textarea.md-form label.active {
+        color: #f48fb1;
+      }
+      .pink-textarea textarea.md-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #f48fb1;
+        box-shadow: 0 1px 0 0 #f48fb1;
+      }
+      .pink-textarea.md-form .prefix.active {
+        color: #f48fb1;
+      }
+      .active-pink-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+        color: #f48fb1;
+      }
+
+      .active-amber-textarea.md-form label.active {
+        color: #ffa000;
+      }
+      .amber-textarea textarea.md-textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #ffa000;
+        box-shadow: 0 1px 0 0 #ffa000;
+      }
+      .amber-textarea.md-form .prefix.active {
+        color: #ffa000;
+      }
+      .active-amber-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
+        color: #ffa000;
+      }
+
+      .active-pink-textarea-2 textarea.md-textarea {
+        border-bottom: 1px solid #1da818;
+        box-shadow: 0 1px 0 0 #23ce23;
+      }
+      .active-pink-textarea-2.md-form label.active {
+        color: #14a127;
+      }
+      .active-pink-textarea-2.md-form label {
+        color: #1c9923;
+      }
+      .active-pink-textarea-2.md-form .prefix {
+        color: #0da31a;
+      }
+      .active-pink-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+        color: #0e852c;
+      }
+
+      .active-amber-textarea-2 textarea.md-textarea {
+        border-bottom: 1px solid #ffa000;
+        box-shadow: 0 1px 0 0 #ffa000;
+      }
+      .active-amber-textarea-2.md-form label.active {
+        color: #ffa000;
+      }
+      .active-amber-textarea-2.md-form label {
+        color: #ffa000;
+      }
+      .active-amber-textarea-2.md-form .prefix {
+        color: #ffa000;
+      }
+      .active-amber-textarea-2.md-form textarea.md-textarea:focus:not([readonly])+label {
+        color: #ffa000;
+      }
+/* j'ai fait un CSS basique, le but étant de montrer la technique pour colorer le fond de l'étoile 1 si on est sur la 1ère étoile, les étoiles 1 et 2 si on est sur la 2ème étoile, etc */
+.C2etoiles{
+    background: rgb(250, 249, 249);
+    display: inline-block;
+    cursor: pointer;
+}
+.C2etoiles:hover{
+    background: rgb(250, 252, 250);
+}
+.C2etoiles div{
+    display: inline-block;
+    padding: 5px;
+}
+.C2etoiles div::after{
+    content:"\002605"; /* une étoile en Unicode */
+}
+.C2etoiles{
+    background: rgb(250, 249, 249);
+    display: inline-block;
+    cursor: pointer;
+}
+.C2etoiles:hover{
+    background: rgb(250, 252, 250);
+}
+.C2etoiles div{
+    display: inline-block;
+    padding: 5px;
+}
+.C2etoiles div::after{
+    content:"\002605"; /* une étoile en Unicode */
+}
