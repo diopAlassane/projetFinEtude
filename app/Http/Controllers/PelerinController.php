@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PelerinStoreRequest;
 use App\Models\Pelerin;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,13 @@ class PelerinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pelerin = Pelerin::all();
-        return view('agentComptoir.allPelerin', compact('pelerin'));
+        $search = $request->get('search', '');
+        $pelerins = Pelerin::search($search)
+        ->latest()
+        ->get();
+        return view('agentComptoir.allPelerin', compact('pelerins', 'search'));
     }
 
     /**
@@ -34,11 +38,12 @@ class PelerinController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PelerinStoreRequest $request)
     {
-        $input = $request->all();
-        Pelerin::create($input);
-        return redirect('allPelerin')->with('status', 'success');
+        //$input = $request->all();
+        $validated = $request->validated();
+        Pelerin::create($validated);
+        return redirect('allPelerin')->with('success', 'Pelerin ajouter avec succes');
         // return redirect()->back()->with('status','Un pelerin a été ajouté avec succés');
     }
 
@@ -48,9 +53,9 @@ class PelerinController extends Controller
      * @param  \App\Models\Pelerin  $pelerin
      * @return \Illuminate\Http\Response
      */
-    public function show(Pelerin $pelerin, $id)
+    public function show(Pelerin $pelerin)
     {
-        $pelerin = Pelerin::find($id);
+        //$pelerin = Pelerin::find($id);
         return view('agentComptoir.showPelerin', compact('pelerin'));
     }
 
@@ -74,7 +79,6 @@ class PelerinController extends Controller
      */
     public function update(Request $request, Pelerin $pelerin)
     {
-        //
     }
 
     /**
@@ -83,10 +87,11 @@ class PelerinController extends Controller
      * @param  \App\Models\Pelerin  $pelerin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelerin $pelerin, $id)
+    public function destroy(Pelerin $pelerin)
     {
-        Pelerin::where('id',$id)->delete();
-        return redirect()->back()->with('status','Success');
+        //Pelerin::where('id',$id)->delete();
+        $pelerin->delete();
+        return redirect()->back()->with('success','Pelerin supprimer avec succes');
     }
 
     public function search(){

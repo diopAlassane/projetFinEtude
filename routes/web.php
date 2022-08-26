@@ -37,14 +37,14 @@ Route::get('bord', [HomeController::class, 'test'])->name('bord');
 
 //Agent comptoir
 Route::post('/addPel', [PelerinController::class, 'store']);
-Route::get('/allPelerin', [PelerinController::class, 'index']);
-Route::get('/destroy/{id}', [PelerinController::class, 'destroy'])->name('destroy');
-Route::get('/show/{id}', [PelerinController::class, 'show'])->name('show');
+Route::get('/allPelerin', [PelerinController::class, 'index'])->name('allPelerin');
+Route::delete('/destroy/{pelerin}', [PelerinController::class, 'destroy'])->name('pelerin.destroy');
+Route::get('/show/{pelerin}', [PelerinController::class, 'show'])->name('show');
 
 //Agent hebergement
 Route::post('/addCha', [ChambreController::class, 'store']);
 Route::get('/allChambre', [ChambreController::class, 'index']);
-Route::get('/destroy/{id}', [ChambreController::class, 'destroy'])->name('destroy');
+Route::get('/delete/{id}', [ChambreController::class, 'destroy'])->name('delete');
 
 
 
