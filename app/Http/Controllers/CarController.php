@@ -14,7 +14,8 @@ class CarController extends Controller
      */
     public function index()
     {
-
+        $car = Car::all();
+        return view('agentTransport.allCars', compact('car'));
     }
 
     /**
@@ -35,7 +36,9 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-
+        $input = $request->all();
+        Car::create($input);
+        return redirect('allCars')->with('status', 'Car ajouter avec succes');
     }
 
     /**

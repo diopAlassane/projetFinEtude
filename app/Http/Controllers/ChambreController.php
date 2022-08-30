@@ -12,10 +12,13 @@ class ChambreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-         $chambre = Chambre::all();
+        // $searched = $request->get('searched', '');
+        $chambre = Chambre::all();
         return view('agentHebergement.allChambre', compact('chambre'));
+        // $chambre = Chambre::all();
+        // return view('agentHebergement.allChambre', compact('chambre'));
     }
 
     /**
@@ -38,7 +41,7 @@ class ChambreController extends Controller
     {
         $input = $request->all();
         Chambre::create($input);
-        return redirect('allChambre')->with('status', 'success');
+        return redirect('allChambre')->with('status', 'Chambre ajouter avec succes');
         // return view('agentHebergement.allChambre');
         // return redirect()->back()->with('status','Une chambre a été ajouté avec succés');
 
@@ -86,10 +89,11 @@ class ChambreController extends Controller
      */
     public function destroy(Chambre $chambre, $id)
     {
-        Chambre::where('id',$id)->delete();
+        // $chambre->delete();
+        // return redirect()->back()->with('success','Chambre supprimer avec succes');
 
-        // $chambre = Chambre::all();
-        // return view('allChambre',compact('chambre'));
+        // Chambre::where('id',$id)->delete();
+        Chambre::destroy($id);
         return redirect()->back()->with('status','Sucess');
     }
 }

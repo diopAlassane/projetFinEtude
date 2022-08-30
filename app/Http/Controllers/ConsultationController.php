@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConsultationStoreRequest;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use PDF;
 
 class ConsultationController extends Controller
 {
@@ -14,7 +16,8 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+        $consultation = Consultation::all();
+        return view('medecin.allConsultation', compact('consultation'));
     }
 
     /**
@@ -33,9 +36,11 @@ class ConsultationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsultationStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        Consultation::create($validated);
+        return redirect('allConsultation')->with('success', 'Consultation enregistrée avec succes');
     }
 
     /**
@@ -80,6 +85,15 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        $consultation->delete();
+        return redirect()->back()->with('success','Consultation supprimer avec succes');
     }
+
+    public function downloadPDF(Consultation $consultation){
+        // return view('medecin.pdf', compact('consultation'));
+
+        $pdf = PDF::loadView('medecin.pdf', compact('consultation'));
+        return $pdf->download('consultation.pdf');
+
+      }
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>ADMIN | Account</title>
+    <title>TASNIM VOYAGE | ADMIN</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -34,7 +34,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Bord</div>
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="{{route('index')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt text-light"></i></div>
                             Tableau de bord
                         </a>
@@ -48,8 +48,8 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="#">Ajouter un utilisateur</a>
-                                <a class="nav-link text-light" href="#">Liste les utilisateurs</a>
+                                <a class="nav-link text-light" href="{{route('register')}}">Ajouter un utilisateur</a>
+                                <a class="nav-link text-light" href="{{route('allUser')}}">Liste les utilisateurs</a>
                             </nav>
                         </div>
 
@@ -62,81 +62,27 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="#">Ajouter un compte</a>
-                                <a class="nav-link text-light" href="#">Liste les comptes</a>
+                                <a class="nav-link text-light" href="{{route('register-user')}}">Ajouter un compte</a>
+                                <a class="nav-link text-light" href="{{route('allAccount')}}">Liste les comptes</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
+                        {{-- <a class="nav-link collapsed text-light" href="{{route('signout')}}" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i>
-                            </div>
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i></div>
                             Se déconnecter
 
-                        </a>
-                    </div>
+                        </a> --}}
+                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
+                        </div>
                 </div>
 
             </nav>
         </div>
-        <div id="layoutSidenav_content">
 
-            <section class="vh-100 gradient-custom">
-                <div class="container py-5 h-100">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-12 col-lg-9 col-xl-7">
-                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                                <div class="card-body p-4 p-md-5">
-                                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center">Formulaire</h3>
-                                    <p class="text-dark-50 mt-0 mb-5 text-center">Veuillez remplir le formulaire pour créer un compte utilisateur</p>
-
-                                    <form action="{{route('addAccount')}}" method="POST">
-                                        <div class="row">
-                                            <div class="col-md-12 mb-4">
-
-                                                <select class="select form-control-lg" name="name">
-                                                  <option value="1" disabled>-- Choisir --</option>
-                                                  <option value="2">Alassane Diop</option>
-                                                  <option value="3">Helicia Tsika</option>
-                                                  <option value="4">Modou Fall</option>
-                                                </select>
-                                                <label class="form-label select-label">Séléctionner un utilisateur </label>
-
-                                              </div>
-                                            <div class="col-md-6 mb-4">
-
-                                                <div class="form-outline">
-                                                    <input type="text" id="email" name="email"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="email">Identifiant</label>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-6 mb-4">
-
-                                                <div class="form-outline">
-                                                    <input type="text" id="password" name="password"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="password">Mot de passe</label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-4 pt-2">
-                                            <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Enregistrer" />
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
+       @yield('content')
     </div>
+
+
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/bootstrap.min.js"></script>

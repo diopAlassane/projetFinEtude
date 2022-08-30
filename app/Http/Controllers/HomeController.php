@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+
     public function index(){
         return view('admin.index');
     }
@@ -54,9 +56,27 @@ class HomeController extends Controller
         return view('admin.bord');
     }
 
+    public function addCar(){
+        return view(('agentTransport.addCar'));
+    }
+
+    public function addCour(){
+        return view('formateur.addCourses');
+    }
+
+    public function addHotel(){
+        return view('agentHebergement.addHotel');
+    }
+
     public function testPel(){
         return view('agentComptoir.allPelerin');
     }
 
+    public function toutHotel(){
+        return view('agentHebergement.allHotel');
+    }
 
+    public function toutChambre(){
+        return view('agentHebergement.allChambre');
+    }
 }

@@ -8,7 +8,7 @@
                     <h2 style="text-align: center;font-size:30px;">La liste des pèlerins</h2>
                 </div>
                 <div class="row">
-                    {{-- Met ici le message de succes ou erreur --}}
+                    {{-- le message de succes ou erreur --}}
                     @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}

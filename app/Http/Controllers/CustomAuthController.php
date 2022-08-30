@@ -7,6 +7,32 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 class CustomAuthController extends Controller
 {
+    // public function verifAuth(){
+    //     $role = Auth::user()->type;
+
+    //     if($role === "Administrateur"){
+    //         return view('admin.index');
+    //     }else if($role === "Agent_Permanence"){
+
+    //     }
+    //     else if($role === "Agent_Hebergement"){
+
+    //     }
+    //     else if($role === "Agent_Transport"){
+
+    //     }
+    //     else if($role === "Agent_Restaurant"){
+
+    //     }else{
+    //         return view('dashboard');
+    //     }
+    // }
+
+    public function allAccount(){
+        $user = User::all();
+        return view('admin.allAccount', compact('user'));
+    }
+
     public function index()
     {
         return view('auth.login');
@@ -21,11 +47,23 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('identifiant', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+
+            $role = Auth::user()->identifiant;
+
+                if($role === "tsika"){
+                    return view('admin.index');
+                }else if($role === "joop"){
+                    return view('agentComptoir.addPelerin');
+                }else{
+                    return view('auth.login');
+                }
+
+
+            // return redirect()->intended('allPelerin')
+            //             ->withSuccess('Bienvenu');
         }
 
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login")->with('status','Identifiant ou mot de passe invalide');
     }
 
     public function registration()

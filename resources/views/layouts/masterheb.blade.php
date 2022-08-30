@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | AGENT COMPTOIR</title>
+    <title>TASNIM VOYAGE | AGENT HEBERGEMENT</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -34,25 +34,24 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark bg-success" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Bord</div>
-                        <a class="nav-link text-light" href="#">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt text-light"></i></div>
-                            Tableau de bord
-                        </a>
 
+                        <div class="sb-sidenav-menu-heading">Interface</div>
                         <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-users-gear text-light"></i></div>
-                            Gestion Pèlerin
+                            <div class="sb-nav-link-icon"><i class="fas fa-solid fa-users text-light"></i></div>
+                            MENU
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-light"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="{{ route('addPelerin') }}">Ajouter un pèlerin</a>
-                                <a class="nav-link text-light" href="{{ route('allPelerin') }}">Liste les pèlerins</a>
+                                <a class="nav-link text-light" href="{{ route('allHotel') }}">Hôtel</a>
+                                <a class="nav-link text-light" href="{{route('allChambre')}}">Chambre</a>
+                                <a class="nav-link text-light" href="{{route('allPelerin')}}">Consulter la liste des pelerins</a>
                             </nav>
                         </div>
+
+
                         <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
 
                     </div>

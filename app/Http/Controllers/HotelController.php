@@ -14,7 +14,8 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //
+        $hotel = Hotel::all();
+        return view('agentHebergement.allHotel', compact('hotel'));
     }
 
     /**
@@ -35,7 +36,9 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Hotel::create($input);
+        return redirect('allHotel')->with('status', 'Hôtel ajouter avec succes');
     }
 
     /**

@@ -21,6 +21,15 @@
 
                                 <h2 class="fw-bold mb-2 text-uppercase">Connexion</h2>
                                 <p class="text-white-50 mb-5">Veuillez saisir votre identifiant et votre mot de passe !</p>
+                                <div class="row">
+                                    {{-- le message de succes ou erreur --}}
+                                    @if (session('status'))
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                        {{ session('status') }}
+                                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
+                                </div>
                                 <form method="POST" action="{{ route('login.custom') }}">
                                     @csrf
                                     <div class="form-outline form-white mb-4">

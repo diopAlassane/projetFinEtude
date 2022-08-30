@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | Agent de transport</title>
+    <title>TASNIM VOYAGE | FORMATEUR</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -44,18 +44,15 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="#">Ajouter un car</a>
-                                <a class="nav-link text-light" href="#">Liste les cars</a>
+                                <a class="nav-link text-light" href="{{route('addCour')}}">Saisir des cours</a>
+                                <a class="nav-link text-light" href="{{route('allCour')}}">Consulter les cours</a>
+                                <a class="nav-link text-light" href="{{route('addPelerin')}}">Consulter la liste des pelerins</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i></div>
-                            Se déconnecter
+                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
 
-                        </a>
                         </div>
                 </div>
 
@@ -64,53 +61,50 @@
         <div id="layoutSidenav_content">
 
 
-            <section class="vh-100 gradient-custom">
-                <div class="container py-5 h-100">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-12 col-lg-9 col-xl-7">
-                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                                <div class="card-body p-4 p-md-5">
-                                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center">Formulaire</h3>
-                                    <p class="text-dark-50 mt-0 mb-5 text-center">Veuillez remplir le formulaire pour enregistrer un car</p>
-
-                                    <form>
-                                        <div class="row">
-
-                                            <div class="col-md-12 mb-4">
-
-                                                <div class="form-outline">
-                                                    <input type="text" id="nature" name="nature"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="nature">Nature</label>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-md-12 mb-4">
-
-                                                <div class="form-outline">
-                                                    <input type="date" id="date_rec" name="date_rec"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="date_rec">Date de reception</label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-4 pt-2">
-                                            <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Enregistrer" />
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container mt-3">
+                <div class="card bg-light mb-5">
+                    <h2 style="text-align: center;font-size:30px;">La liste des cars</h2>
                 </div>
-            </section>
+                <div class="row">
+                    {{-- le message de succes ou erreur --}}
+                    @if (session('status'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('status') }}
+                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+                </div>
+                <nav class="navbar navbar-light bg-light mb-3">
+                    <div class="container-fluid">
+                        <a href="{{route('addCour')}}" class="btn btn-primary btn-sm p-2 mb-1">NOUVEAU</a>
+
+                    </div>
+                </nav>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-light">
+                            <th>#</th>
+                            <th>Titre</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($cours as $item)
+
+                        <tr>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->titre}}</td>
+                            <td>{{$item->description}}</td>
+
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 
 
         </div>
+
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>

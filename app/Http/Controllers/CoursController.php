@@ -14,7 +14,8 @@ class CoursController extends Controller
      */
     public function index()
     {
-        //
+        $cours = Cours::all();
+        return view('formateur.allCourses', compact('cours'));
     }
 
     /**
@@ -35,7 +36,9 @@ class CoursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Cours::create($input);
+        return redirect('allCour')->with('status', 'Cours ajouter avec succes');
     }
 
     /**
