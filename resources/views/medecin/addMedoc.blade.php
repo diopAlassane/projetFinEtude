@@ -16,14 +16,20 @@
                                 @csrf
                                 <div class="row">
 
-                                    <div class="col-md-12 mb-4">
+                                    <div class="form-group mb-3">
+                                        <select class="select form-control-lg" name="pelerin_id">
+                                            <option value="0" disabled selected>-- Choisir --</option>
 
-                                        <div class="form-outline">
-                                            <input type="text" id="pelerin_id" name="pelerin_id"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="pelerin_id">Pèlerin</label>
-                                        </div>
+                                            @foreach ($pelerins as  $pelerin)
+                                                <option value="{{$pelerin->id}}">{{$pelerin->prenom}} {{$pelerin->nom}}</option>
+                                            @endforeach
 
+                                        </select>
+                                        <label class="form-label select-label">Choisissez un pèlerin</label>
+
+                                        @if ($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        @endif
                                     </div>
 
                                     <div class="col-md-12 mb-4">

@@ -44,8 +44,8 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="#">Consulter la liste des pelerins</a>
-                                <a class="nav-link text-light" href="#">Consulter les plaintes</a>
+                                <a class="nav-link text-light" href="{{route('pelerinPermanence')}}">Consulter la liste des pelerins</a>
+                                <a class="nav-link text-light" href="{{route('plainte')}}">Consulter les plaintes</a>
                             </nav>
                         </div>
 
@@ -76,35 +76,25 @@
                             <thead class="bg-success text-white">
                                 <tr>
                                     <th>#</th>
-                                    <th>Pelerin</th>
+                                    <th>ID Pelerin</th>
                                     <th>Description</th>
                                     <th>Date d'émission</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($plainte as $value)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Helicia TSIKA</td>
-                                    <td>j'ai egaré mon passeport</td>
-                                    <td>04/08/2022</td>
+                                    <td>{{$value->id}}</td>
+                                    <td>{{$value->pelerin_id}}</td>
+                                    <td>{{$value->description}}</td>
+                                    <td>{{$value->date_emission}}</td>
                                     <td>
                                         <a href="#"><i class="fas fa-solid fa-eye text-success"></i></a>
-                                <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a>
-
+                                        <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Abdoulaye Mbaye</td>
-                                    <td>j'ai pas retrouver mon numéro de chambre</td>
-                                    <td>03/08/2022</td>
-                                    <td>
-                                        <a href="#"><i class="fas fa-solid fa-eye text-success"></i></a>
-                                <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a>
-
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

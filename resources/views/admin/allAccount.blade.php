@@ -31,8 +31,9 @@
             <thead>
                 <tr class="bg-light">
                     <th>#</th>
-                    <th>Prenom</th>
                     <th>Nom</th>
+                    <th>Identifiant</th>
+                    <th>Nature</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,6 +43,7 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
                     <td>{{$item->identifiant}}</td>
+                    <td>{{$item->type_user}}</td>
                     {{-- <td>
                         <a href="{{route('show', $pelerin)}}"><i
                                 class="fas fa-solid fa-eye text-success"></i></a>

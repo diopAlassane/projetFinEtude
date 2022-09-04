@@ -45,7 +45,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('addCar')}}">Ajouter un car</a>
-                                <a class="nav-link text-light" href="{{route('allCars')}}">Liste les cars</a>
+                                <a class="nav-link text-light" href="{{route('allCars')}}">Liste des cars</a>
                             </nav>
                         </div>
 

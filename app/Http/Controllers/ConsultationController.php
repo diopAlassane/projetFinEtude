@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ConsultationStoreRequest;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PelerinController;
+use App\Models\Pelerin;
 use PDF;
 
 class ConsultationController extends Controller
 {
+    public function pelerinCons(){
+        $pelerins = Pelerin::all();
+        return view('medecin.pelerins', compact('pelerins'));
+    }
+
     /**
      * Display a listing of the resource.
      *

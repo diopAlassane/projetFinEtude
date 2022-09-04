@@ -16,10 +16,12 @@
                                 <div class="form-group mb-3">
                                     <select class="select form-control-lg" name="name">
                                         <option value="0" disabled selected>-- Choisir --</option>
-                                        {{-- <option value="1">{{$utilisateur['id']}}</option> --}}
-                                        <option value="Alassane DIOP" >Alassane DIOP</option>
-                                        <option value="Tsika Helicia">Tsika Helicia</option>
-                                        <option value="Test 3">Test</option>
+                                        {{-- <option value="test">test</option>
+                                        <option value="test 2">test 2</option> --}}
+                                        @foreach ($utilisateur as  $value)
+                                            <option value="{{$value->prenom}} {{$value->nom}}">{{$value->prenom}} {{$value->nom}}</option>
+                                        @endforeach
+
                                     </select>
                                     <label class="form-label select-label">Choisissez un utilisateur</label>
 
@@ -41,11 +43,21 @@
                                     <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
-                                {{-- <div class="form-group mb-3">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" name="remember"> Remember Me</label>
-                                    </div>
-                                </div> --}}
+                                <div class="form-group mb-3">
+                                    <select class="select form-control-lg" name="type_user">
+                                        <option value="0" disabled selected>-- Choisir --</option>
+
+                                        @foreach ($utilisateur as  $value)
+                                            <option value="{{$value->type}}">{{$value->type}}</option>
+                                        @endforeach
+
+                                    </select>
+                                    <label class="form-label select-label">Choisissez la nature de l'utilisateur</label>
+
+                                    @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                </div>
                                 <div class="d-grid mx-auto">
                                     <button type="submit" class="btn btn-success btn-block">Enregistrer</button>
                                 </div>

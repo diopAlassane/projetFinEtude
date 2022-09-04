@@ -49,7 +49,7 @@ class UtilisateurController extends Controller
         $utilisateur->type = $request->input('type');
 
         $utilisateur->save();
-        return redirect()->back()->with('status','Un utilisateur a été ajouté avec succés');
+        return redirect('allUser')->with('status','Un utilisateur a été ajouté avec succés');
     }
 
     /**

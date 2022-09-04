@@ -47,7 +47,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{ route('allHotel') }}">Hôtel</a>
                                 <a class="nav-link text-light" href="{{route('allChambre')}}">Chambre</a>
-                                <a class="nav-link text-light" href="{{route('allPelerin')}}">Consulter la liste des pelerins</a>
+                                <a class="nav-link text-light" href="{{route('pelerinHeb')}}">Consulter la liste des pelerins</a>
                             </nav>
                         </div>
 

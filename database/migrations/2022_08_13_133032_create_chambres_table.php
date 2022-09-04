@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('hotel_id')->references('id')->on('hotels')->onUpdate('cascade')->onDelete('cascade');
             $table->string('type');
             $table->string('nombre_place');
+            $table->string('pelerin_name');
             $table->timestamps();
         });
     }

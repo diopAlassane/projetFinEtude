@@ -1,7 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\PelerinController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\CoursController;
+use App\Http\Controllers\PlainteController;
+use App\Models\Cours;
+use App\Models\Hotel;
+use App\Models\Pelerin;
+use App\Models\Plainte;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -37,7 +44,15 @@ class HomeController extends Controller
     }
 
     public function addMedoc(){
-        return view('medecin.addMedoc');
+
+        $pelerins = Pelerin::all();
+        return view('medecin.addMedoc', compact('pelerins'));
+    }
+
+    public function pelerinHeb(){
+
+        $pelerins = Pelerin::all();
+        return view('agentHebergement.allPel', compact('pelerins'));
     }
 
     public function addCourses(){
@@ -49,7 +64,9 @@ class HomeController extends Controller
     }
 
     public function addChambre(){
-        return view('agentHebergement.addChambre');
+        $pelerins = Pelerin::all();
+        $hotel = Hotel::all();
+        return view('agentHebergement.addChambre', compact('hotel', 'pelerins'));
     }
 
     public function test(){
@@ -78,5 +95,25 @@ class HomeController extends Controller
 
     public function toutChambre(){
         return view('agentHebergement.allChambre');
+    }
+
+    public function pelerinPermanence(){
+        $pelerins = Pelerin::all();
+        return view('agentPermanence.pelerin', compact('pelerins'));
+    }
+
+    public function plainte(){
+        $plainte = Plainte::all();
+        return view('agentPermanence.viewPlainte', compact('plainte'));
+    }
+
+    public function coursPelerin(){
+        $cours = Cours::all();
+        return view('pelerin.cours', compact('cours'));
+    }
+
+    public function infosPelerin($id){
+        $infos = Pelerin::find($id);
+        return view('pelerin.infos', compact('infos'));
     }
 }

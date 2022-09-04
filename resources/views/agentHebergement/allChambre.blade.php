@@ -34,6 +34,7 @@
                     <th>Hôtel</th>
                     <th>Type</th>
                     <th>Nombre de place</th>
+                    <th>Affectation</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -44,6 +45,7 @@
                     <td>{{$item->hotel_id}}</td>
                     <td>{{$item->type}}</td>
                     <td>{{$item->nombre_place}}</td>
+                    <td>{{$item->pelerin_name}}</td>
                     <td>
                         <a href="#"><i class="fas fa-solid fa-eye text-success"></i></a>
                         <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a>

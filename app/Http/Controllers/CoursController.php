@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Cours;
 use Illuminate\Http\Request;
+use App\Http\Controllers\PelerinController;
+use App\Models\Pelerin;
 
 class CoursController extends Controller
 {
+    public function pelerinFormation(){
+        $pelerins = Pelerin::all();
+        return view('formateur.pelerin', compact('pelerins'));
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -12,6 +12,7 @@ class Chambre extends Model
     protected $fillable = [
         'hotel_id',
         'type',
-        'nombre_place'
+        'nombre_place',
+        'pelerin_name'
     ];
 }

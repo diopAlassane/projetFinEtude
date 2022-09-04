@@ -14,7 +14,8 @@ class PlainteController extends Controller
      */
     public function index()
     {
-        //
+        // $plainte = Plainte::all();
+        return view('pelerin.depotPlainte');
     }
 
     /**
@@ -35,7 +36,9 @@ class PlainteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Plainte::create($input);
+        return redirect()->back()->with('status', 'Votre plainte a été envoyé');
     }
 
     /**

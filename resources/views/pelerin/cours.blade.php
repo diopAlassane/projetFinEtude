@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | FORMATEUR</title>
+    <title>TASNIM VOYAGE | PELERIN</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style1.css">
     <script src="fontawesome/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -44,15 +45,19 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="{{route('addCour')}}">Saisir des cours</a>
-                                <a class="nav-link text-light" href="{{route('allCour')}}">Consulter les cours</a>
-                                <a class="nav-link text-light" href="{{route('pelerinFormation')}}">Consulter la liste des pelerins</a>
+                                <a class="nav-link text-light" href="#">Consulter mes informations</a>
+                                <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
+                                <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
+                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i></div>
+                            Se déconnecter
 
+                        </a>
                         </div>
                 </div>
 
@@ -60,26 +65,11 @@
         </div>
         <div id="layoutSidenav_content">
 
-
             <div class="container mt-3">
                 <div class="card bg-light mb-5">
                     <h2 style="text-align: center;font-size:30px;">La liste des cours</h2>
                 </div>
-                <div class="row">
-                    {{-- le message de succes ou erreur --}}
-                    @if (session('status'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('status') }}
-                        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @endif
-                </div>
-                <nav class="navbar navbar-light bg-light mb-3">
-                    <div class="container-fluid">
-                        <a href="{{route('addCour')}}" class="btn btn-primary btn-sm p-2 mb-1">NOUVEAU</a>
 
-                    </div>
-                </nav>
                 <table class="table table-hover">
                     <thead>
                         <tr class="bg-light">
@@ -102,9 +92,7 @@
                 </table>
             </div>
 
-
         </div>
-
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>

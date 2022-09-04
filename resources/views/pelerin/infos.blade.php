@@ -46,8 +46,8 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="#">Consulter mes informations</a>
-                                <a class="nav-link text-light" href="#">Consulter un cours</a>
-                                <a class="nav-link text-light" href="#">Deposer une plainte</a>
+                                <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
+                                <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
                             </nav>
                         </div>
 
@@ -66,50 +66,7 @@
         <div id="layoutSidenav_content">
 
 
-            <section class="vh-100 gradient-custom">
-                <div class="container py-5 h-100">
-                    <div class="row justify-content-center align-items-center h-100">
-                        <div class="col-12 col-lg-9 col-xl-7">
-                            <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                                <div class="card-body p-4 p-md-5">
-                                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center">Formulaire</h3>
-                                    <p class="text-dark-50 mt-0 mb-5 text-center">Veuillez remplir le formulaire pour envoyer une plainte</p>
-
-                                    <form>
-                                        <div class="row">
-
-                                            <div class="col-md-12 mb-4">
-
-                                                <div class="md-form mb-4 pink-textarea active-pink-textarea">
-                                                    <i class="fas fa-angle-double-right prefix"></i>
-                                                    <textarea id="form21" class="md-textarea form-control" rows="3"></textarea>
-                                                    {{-- <label for="form21">Material textarea with a colorful prefix on :focus state</label> --}}
-                                                  </div>
-
-                                            </div>
-                                            <div class="col-md-6 mb-4">
-
-                                                <div class="form-outline">
-                                                    <input type="date" id="date_em" name="date_em"
-                                                        class="form-control form-control-lg" />
-                                                    <label class="form-label" for="date_em">Date d'émission</label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-4 pt-2">
-                                            <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Envoyer" />
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+           <h1>infos indisponible</h1>
 
 
         </div>

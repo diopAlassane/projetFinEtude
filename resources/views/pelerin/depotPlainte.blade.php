@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | Agent de transport</title>
+    <title>TASNIM VOYAGE | PELERIN</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style1.css">
     <script src="fontawesome/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -44,14 +45,19 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="{{route('addCar')}}">Ajouter un car</a>
-                                <a class="nav-link text-light" href="{{route('allCars')}}">Liste des cars</a>
+                                <a class="nav-link text-light" href="#">Consulter mes informations</a>
+                                <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
+                                <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
+                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
+                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i></div>
+                            Se déconnecter
 
+                        </a>
                         </div>
                 </div>
 
@@ -67,27 +73,45 @@
                             <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                                 <div class="card-body p-4 p-md-5">
                                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-1 text-center">Formulaire</h3>
-                                    <p class="text-dark-50 mt-0 mb-5 text-center">Veuillez remplir le formulaire pour enregistrer un car</p>
-
-                                    <form action="/addCar" method="POST">
+                                    <p class="text-dark-50 mt-0 mb-5 text-center">Veuillez remplir le formulaire pour envoyer une plainte</p>
+                                    <div class="row">
+                                        {{-- le message de succes ou erreur --}}
+                                        @if (session('status'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ session('status') }}
+                                            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <form action="/addPlainte" method="POST">
                                         @csrf
                                         <div class="row">
 
                                             <div class="col-md-12 mb-4">
 
                                                 <div class="form-outline">
-                                                    <input type="text" id="nature" name="nature"
+                                                    <input type="text" id="pelerin_id" name="pelerin_id"
                                                         class="form-control form-control-lg" />
-                                                    <label class="form-label" for="nature">Nature</label>
+                                                    <label class="form-label" for="pelerin_id">ID</label>
                                                 </div>
 
                                             </div>
+
                                             <div class="col-md-12 mb-4">
 
+                                                <div class="md-form mb-4 pink-textarea active-pink-textarea">
+                                                    <i class="fas fa-angle-double-right prefix"></i>
+                                                    <textarea id="form21" class="md-textarea form-control" name="description" rows="3"></textarea>
+                                                    {{-- <label for="form21">Material textarea with a colorful prefix on :focus state</label> --}}
+                                                  </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+
                                                 <div class="form-outline">
-                                                    <input type="date" id="date_reception" name="date_reception"
+                                                    <input type="date" id="date_emission" name="date_emission"
                                                         class="form-control form-control-lg" />
-                                                    <label class="form-label" for="date_reception">Date de reception</label>
+                                                    <label class="form-label" for="date_emission">Date d'émission</label>
                                                 </div>
 
                                             </div>
@@ -95,7 +119,7 @@
 
 
                                         <div class="mt-4 pt-2">
-                                            <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Enregistrer" />
+                                            <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Envoyer" />
                                         </div>
 
                                     </form>

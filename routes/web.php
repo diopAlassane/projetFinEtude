@@ -10,6 +10,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CoursController;
+use App\Http\Controllers\PlainteController;
 
 
 /*
@@ -55,8 +56,10 @@ Route::get('/delete/{id}', [ChambreController::class, 'destroy'])->name('chambre
 Route::get('addHotel', [HomeController::class, 'addHotel'])->name('addHotel');
 Route::get('/allHotel', [HotelController::class, 'index'])->name('allHotel');
 Route::post('addHotel', [HotelController::class, 'store'])->name('addHotel');
+Route::get('pelerinHeb', [HomeController::class, 'pelerinHeb'])->name('pelerinHeb');
+// Route::get('/hotelList', [HotelController::class, 'hotelList'])->name('hotelList');
 
-//Agent transport 'OK'
+//Agent transport 'NON OK ' attribuer des places
 Route::post('/addCar', [CarController::class, 'store']);
 Route::get('/allCars', [CarController::class, 'index'])->name('allCars');
 Route::get('addCarr', [HomeController::class, 'addCar'])->name('addCar');
@@ -66,14 +69,22 @@ Route::post('/addconsultation', [ConsultationController::class, 'store']);
 Route::get('/allConsultation', [ConsultationController::class, 'index'])->name('allConsultation');
 Route::delete('/destroy/{consultation}', [ConsultationController::class, 'destroy'])->name('consultation.destroy');
 Route::get('/downloadPDF/{consultation}', [ConsultationController::class, 'downloadPDF'])->name('consultation.downloadPDF');
+Route::get('/pelerinCons', [ConsultationController::class, 'pelerinCons'])->name('pelerinCons');
 
 // Formateur 'OK'
 Route::get('/allCour', [CoursController::class, 'index'])->name('allCour');
 Route::post('addCour', [CoursController::class, 'store'])->name('addCour');
 Route::get('addCourr', [HomeController::class, 'addCour'])->name('addCour');
+Route::get('/pelerinFormation', [CoursController::class, 'pelerinFormation'])->name('pelerinFormation');
 
 // agent permanence 'NON OK'
+Route::get('pelerinPermanence', [HomeController::class, 'pelerinPermanence'])->name('pelerinPermanence');
+Route::get('plainte', [HomeController::class, 'plainte'])->name('plainte');
+
 // pelerin 'NON OK'
+Route::get('coursPelerin', [HomeController::class, 'coursPelerin'])->name('coursPelerin');
+Route::post('addPlainte', [PlainteController::class, 'store'])->name('addPlainte');
+Route::get('plainteForm', [PlainteController::class, 'index'])->name('plainteForm');
 
 
 //Frontend test for HomeController

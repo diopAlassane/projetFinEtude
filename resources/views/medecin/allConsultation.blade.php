@@ -47,14 +47,14 @@
                             <td>
                                 {{-- <a href="{{route('show', $pelerin)}}">
                                     <i class="fas fa-solid fa-eye text-success"></i></a> --}}
-                                <a href="{{route('consultation.destroy', $consultation)}}" onclick="event.preventDefault();
+                                {{-- <a href="{{route('consultation.destroy', $consultation)}}" onclick="event.preventDefault();
                                 document.getElementById('consultation-delete').submit();">
                                     <i class="fas fa-solid fa-trash-arrow-up text-danger"></i>
                                 </a>
                                 <form id="consultation-delete" action="{{route('consultation.destroy', $consultation)}}" method="POST" style="display: none;">
                                     @csrf
                                     @method('DELETE')
-                                </form>
+                                </form> --}}
                                 <a href="{{route('consultation.downloadPDF', $consultation)}}">
                                     <i class="fas fa-file-pdf ml-100"></i>
                                 </a>

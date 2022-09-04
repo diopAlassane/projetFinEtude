@@ -46,7 +46,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('addCour')}}">Saisir des cours</a>
                                 <a class="nav-link text-light" href="{{route('allCour')}}">Consulter les cours</a>
-                                <a class="nav-link text-light" href="{{route('addPelerin')}}">Consulter la liste des pelerins</a>
+                                <a class="nav-link text-light" href="{{route('pelerinFormation')}}">Consulter la liste des pelerins</a>
                             </nav>
                         </div>
 

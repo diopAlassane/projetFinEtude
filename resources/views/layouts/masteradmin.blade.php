@@ -49,7 +49,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('register')}}">Ajouter un utilisateur</a>
-                                <a class="nav-link text-light" href="{{route('allUser')}}">Liste les utilisateurs</a>
+                                <a class="nav-link text-light" href="{{route('allUser')}}">Liste des utilisateurs</a>
                             </nav>
                         </div>
 
@@ -63,7 +63,7 @@
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('register-user')}}">Ajouter un compte</a>
-                                <a class="nav-link text-light" href="{{route('allAccount')}}">Liste les comptes</a>
+                                <a class="nav-link text-light" href="{{route('allAccount')}}">Liste des comptes</a>
                             </nav>
                         </div>
                         {{-- <a class="nav-link collapsed text-light" href="{{route('signout')}}" data-bs-toggle="collapse"

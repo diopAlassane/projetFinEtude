@@ -1,10 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UtilisateurController;
+use App\Models\Utilisateur;
+
 class CustomAuthController extends Controller
 {
     // public function verifAuth(){
@@ -49,6 +53,7 @@ class CustomAuthController extends Controller
         if (Auth::attempt($credentials)) {
 
             $role = Auth::user()->identifiant;
+            // $role = Auth::user()->type_user; //Redirection aprés authentification
 
                 if($role === "tsika"){
                     return view('admin.index');
@@ -68,7 +73,8 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-        return view('auth.registration');
+        $utilisateur = Utilisateur::all();
+        return view('auth.registration', compact('utilisateur'));
     }
 
     public function customRegistration(Request $request)
@@ -77,12 +83,13 @@ class CustomAuthController extends Controller
             'name' => 'required',
             'identifiant' => 'required|unique:users',
             'password' => 'required|min:6',
+            'type_user' => 'nullable',
         ]);
 
         $data = $request->all();
         $check = $this->create($data);
 
-        return redirect("login")->withSuccess('Compte créée');
+        return redirect("allAccount")->withSuccess('Compte créée');
     }
 
     public function create(array $data)
@@ -90,7 +97,8 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'identifiant' => $data['identifiant'],
-        'password' => Hash::make($data['password'])
+        'password' => Hash::make($data['password']),
+        'type_user' => $data['type_user']
       ]);
     }
 

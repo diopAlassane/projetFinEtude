@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Chambre;
 use Illuminate\Http\Request;
+use App\Http\Controllers\HotelController;
+use App\Models\Hotel;
 
 class ChambreController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *

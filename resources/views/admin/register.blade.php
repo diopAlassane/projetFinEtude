@@ -82,10 +82,15 @@
                                     <div class="col-12">
 
                                         <select class="select form-control-lg" name="type">
-                                            <option value="0" disabled>-- Choisir --</option>
+                                            <option value="0" disabled selected>-- Choisir --</option>
                                             <option value="Administrateur" selected>Administrateur</option>
-                                            <option value="Pèlerin">Pèlerin</option>
+                                            <option value="Pelerin">Pèlerin</option>
                                             <option value="Agent Comptoir">Agent Comptoir</option>
+                                            <option value="Agent hebergement">Agent d'hebergemet</option>
+                                            <option value="Agent transport">Agent de transport</option>
+                                            <option value="Agent permanence">Agent de permanence</option>
+                                            <option value="Medecin">Medecin</option>
+                                            <option value="Formateur">Formateur</option>
                                         </select>
                                         <label class="form-label select-label">Choisissez la nature de l'utilisateur</label>
 
