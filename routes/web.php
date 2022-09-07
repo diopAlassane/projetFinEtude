@@ -47,6 +47,7 @@ Route::post('/addPel', [PelerinController::class, 'store']);
 Route::get('/allPelerin', [PelerinController::class, 'index'])->name('allPelerin');
 Route::delete('/destroy/{pelerin}', [PelerinController::class, 'destroy'])->name('pelerin.destroy');
 Route::get('/show/{pelerin}', [PelerinController::class, 'show'])->name('show');
+Route::get('/PDF', [PelerinController::class, 'createPDF'])->name('agentComptoir.pdf_view');
 
 //Agent hebergement 'OK'
 Route::post('/addCha', [ChambreController::class, 'store']);
@@ -63,6 +64,7 @@ Route::get('pelerinHeb', [HomeController::class, 'pelerinHeb'])->name('pelerinHe
 Route::post('/addCar', [CarController::class, 'store']);
 Route::get('/allCars', [CarController::class, 'index'])->name('allCars');
 Route::get('addCarr', [HomeController::class, 'addCar'])->name('addCar');
+Route::get('listPelerin', [HomeController::class, 'listPelerinCar'])->name('listPelerin');
 
 //Medecin 'OK'
 Route::post('/addconsultation', [ConsultationController::class, 'store']);
@@ -77,14 +79,16 @@ Route::post('addCour', [CoursController::class, 'store'])->name('addCour');
 Route::get('addCourr', [HomeController::class, 'addCour'])->name('addCour');
 Route::get('/pelerinFormation', [CoursController::class, 'pelerinFormation'])->name('pelerinFormation');
 
-// agent permanence 'NON OK'
+// agent permanence 'OK'
 Route::get('pelerinPermanence', [HomeController::class, 'pelerinPermanence'])->name('pelerinPermanence');
 Route::get('plainte', [HomeController::class, 'plainte'])->name('plainte');
+Route::get('bordPermanence', [HomeController::class, 'bordPermanence'])->name('bordPermanence');
 
-// pelerin 'NON OK'
+// pelerin 'OK'
 Route::get('coursPelerin', [HomeController::class, 'coursPelerin'])->name('coursPelerin');
 Route::post('addPlainte', [PlainteController::class, 'store'])->name('addPlainte');
 Route::get('plainteForm', [PlainteController::class, 'index'])->name('plainteForm');
+Route::get('infosPelerin', [HomeController::class, 'infosPelerin'])->name('infosPelerin');
 
 
 //Frontend test for HomeController

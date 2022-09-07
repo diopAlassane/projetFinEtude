@@ -35,7 +35,7 @@
                     <th>Type</th>
                     <th>Nombre de place</th>
                     <th>Affectation</th>
-                    <th>Action</th>
+                    {{-- <th>Action</th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -47,8 +47,8 @@
                     <td>{{$item->nombre_place}}</td>
                     <td>{{$item->pelerin_name}}</td>
                     <td>
-                        <a href="#"><i class="fas fa-solid fa-eye text-success"></i></a>
-                        <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a>
+                        {{-- <a href="#"><i class="fas fa-solid fa-eye text-success"></i></a>
+                        <a href="#"><i class="fas fa-solid fa-trash-arrow-up text-danger"></i></a> --}}
                         {{-- <a href="{{route('chambre.destroy', $chambre)}}" onclick="event.preventDefault();
                                 document.getElementById('chambre-delete').submit();">
                                     <i class="fas fa-solid fa-trash-arrow-up text-danger"></i>

@@ -45,29 +45,108 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="#">Consulter mes informations</a>
+                                <a class="nav-link text-light" href="{{route('infosPelerin')}}">Consulter mes
+                                    informations</a>
                                 <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
                                 <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i></div>
-                            Se déconnecter
+                        <a class="nav-link text-light" href="{{route('signout')}}"><i
+                                class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
 
-                        </a>
-                        </div>
+                    </div>
                 </div>
 
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            <div class="container mt-3">
+                <div class="card bg-light mb-5">
+                    <h2 style="text-align: center;font-size:30px;">Mes informations</h2>
+                </div>
+                <div class="col-sm-12 pt-90">
+                    <div class="card-body text-center bg-light mb-3 pb-0 pt-0" style="font-size: 30px">
+                        <p><strong>Informations d'identification</strong></p>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-light">
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Identifiant</th>
+                            <th>Nature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                        <tr>
+                            <td>{{Auth::user()->id}} </td>
+                            <td>{{Auth::user()->name}} </td>
+                            <td>{{Auth::user()->identifiant}} </td>
+                            <td> {{Auth::user()->type_user}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-           <h1>infos indisponible</h1>
+            <div class="container mb-3">
+                <div class="col-sm-12 pt-90">
+                    <div class="card-body text-center bg-light mb-3 pb-0 pt-0" style="font-size: 30px">
+                        <p><strong>Informations personnelles</strong></p>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-light">
+                            <th>#</th>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Date de naissace</th>
+                            <th>Contact</th>
+                            <th>Numéro CNI/Passeport</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                        <tr>
+                            <td>{{$pel->id}}</td>
+                            <td>{{$pel->prenom}} </td>
+                            <td>{{$pel->nom}} </td>
+                            <td>{{$pel->date_nais}} </td>
+                            <td>{{$pel->contact}} </td>
+                            <td>{{$pel->passeport}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            {{-- <div class="container mb-3">
+                <div class="col-sm-12 pt-90">
+                    <div class="card-body text-center bg-light mb-3 pb-0 pt-0" style="font-size: 30px">
+                        <p><strong>Informations d'hergement</strong></p>
+                    </div>
+                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="bg-light">
+                            <th>#</th>
+                            <th>Type de chambre</th>
+                            <th>Nombre de places</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>{{$chambre->id}}</td>
+                            <td>{{$chambre->type}} </td>
+                            <td>{{$chambre->nombre_place}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> --}}
 
         </div>
     </div>

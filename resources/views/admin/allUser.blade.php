@@ -10,9 +10,9 @@
         </div>
         <div class="row">
             {{-- le message de succes ou erreur --}}
-            @if (session('success'))
+            @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('success') }}
+                {{ session('status') }}
                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
@@ -39,7 +39,7 @@
                     <th>N° CNI</th>
                     <th>Sexe</th>
                     <th>Nature</th>
-                    <th>Actions</th>
+                    {{-- <th>Actions</th> --}}
                 </tr>
             </thead>
             <tbody>

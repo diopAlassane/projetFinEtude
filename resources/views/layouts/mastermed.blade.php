@@ -46,7 +46,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('allConsultation')}}">Consultation</a>
                                 {{-- <a class="nav-link text-light" href="#">Prescription</a> --}}
-                                <a class="nav-link text-light" href="{{route('pelerinCons')}}">Liste les pèlerins</a>
+                                <a class="nav-link text-light" href="{{route('pelerinCons')}}">Liste des pèlerins</a>
                             </nav>
                         </div>
 

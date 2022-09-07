@@ -44,6 +44,10 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link text-light" href="{{route('bordPermanence')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt text-light"></i></div>
+                                    Tableau de bord
+                                </a>
                                 <a class="nav-link text-light" href="{{route('pelerinPermanence')}}">Consulter la liste des pelerins</a>
                                 <a class="nav-link text-light" href="{{route('plainte')}}">Consulter les plaintes</a>
                             </nav>

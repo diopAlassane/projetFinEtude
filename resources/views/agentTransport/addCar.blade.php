@@ -46,6 +46,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('addCar')}}">Ajouter un car</a>
                                 <a class="nav-link text-light" href="{{route('allCars')}}">Liste des cars</a>
+                                <a class="nav-link text-light" href="{{route('listPelerin')}}">Liste des pèlerins</a>
                             </nav>
                         </div>
 
@@ -92,7 +93,18 @@
 
                                             </div>
                                         </div>
+                                        <div class="form-group mb-3">
+                                            <select class="select form-control-lg" name="pelerin_name">
+                                                <option value="0" disabled selected>-- Choisir --</option>
 
+                                                @foreach ($pelerins as $pelerin)
+                                                <option value="{{$pelerin->prenom}} {{$pelerin->nom}}"> {{$pelerin->prenom}} {{$pelerin->nom}}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <label class="form-label select-label">Affecter à un pèlerin</label>
+
+                                        </div>
 
                                         <div class="mt-4 pt-2">
                                             <input class="btn btn-success btn-lg" type="submit" name="sutmit" value="Enregistrer" />

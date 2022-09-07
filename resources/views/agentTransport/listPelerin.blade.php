@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | PELERIN</title>
+    <title>TASNIM VOYAGE | Agent de transport</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style1.css">
     <script src="fontawesome/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -45,9 +44,9 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="{{route('infosPelerin')}}">Consulter mes informations</a>
-                                <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
-                                <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
+                                <a class="nav-link text-light" href="{{route('addCar')}}">Ajouter un car</a>
+                                <a class="nav-link text-light" href="{{route('allCars')}}">Liste des cars</a>
+                                <a class="nav-link text-light" href="{{route('listPelerin')}}">Liste des pèlerins</a>
                             </nav>
                         </div>
 
@@ -61,32 +60,39 @@
         </div>
         <div id="layoutSidenav_content">
 
+
             <div class="container mt-3">
                 <div class="card bg-light mb-5">
-                    <h2 style="text-align: center;font-size:30px;">La liste des cours</h2>
+                    <h2 style="text-align: center;font-size:30px;">La liste des pèlerins</h2>
                 </div>
 
                 <table class="table table-hover">
                     <thead>
                         <tr class="bg-light">
                             <th>#</th>
-                            <th>Titre</th>
-                            <th>Description</th>
+                            <th>Prenom</th>
+                            <th>Nom</th>
+                            <th>Date de naissance</th>
+                            <th>E-mail</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($cours as $item)
+                        @foreach ($pelerins as $pelerin)
 
                         <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->titre}}</td>
-                            <td>{{$item->description}}</td>
+                            <td>{{$pelerin->id}}</td>
+                            <td>{{$pelerin->prenom}}</td>
+                            <td>{{$pelerin->nom}}</td>
+                            <td>{{$pelerin->date_nais}}</td>
+                            <td>{{$pelerin->email}}</td>
 
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
+
 
         </div>
     </div>

@@ -1,10 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\UtilisateurController;
 use App\Http\Controllers\PelerinController;
+use App\Http\Controllers\ChambreController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CoursController;
 use App\Http\Controllers\PlainteController;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Chambre;
+use Illuminate\Support\Facades\DB;
 use App\Models\Cours;
 use App\Models\Hotel;
 use App\Models\Pelerin;
@@ -74,7 +82,8 @@ class HomeController extends Controller
     }
 
     public function addCar(){
-        return view(('agentTransport.addCar'));
+        $pelerins = Pelerin::all();
+        return view('agentTransport.addCar', compact('pelerins'));
     }
 
     public function addCour(){
@@ -112,8 +121,30 @@ class HomeController extends Controller
         return view('pelerin.cours', compact('cours'));
     }
 
-    public function infosPelerin($id){
-        $infos = Pelerin::find($id);
-        return view('pelerin.infos', compact('infos'));
+    public function infosPelerin(){
+        $infos = Pelerin::all();
+        $chambre = Chambre::where('pelerin_name', '=', Auth::user()->identifiant)->first();
+        $pel = Pelerin::where('prenom', '=', Auth::user()->identifiant)->first();
+        // dd($pel);
+        // $infos = Pelerin::select('id')->latest('id')->get();
+        // dd($chambre);
+        return view('pelerin.infos', compact('infos', 'chambre', 'pel'));
+
+
+
+    //     $term = '2';
+    //     $filterData = DB::table('pelerins')->where('id','LIKE','%'.$term.'%')
+    //                   ->get();
+
+    //     print_r($filterData);
+    }
+
+    public function listPelerinCar(){
+        $pelerins = Pelerin::all();
+        return view('agentTransport.listPelerin', compact('pelerins'));
+    }
+
+    public function bordPermanence(){
+        return view('agentPermanence.tbord');
     }
 }

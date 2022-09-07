@@ -85,10 +85,10 @@
                                             <option value="0" disabled selected>-- Choisir --</option>
                                             <option value="Administrateur" selected>Administrateur</option>
                                             <option value="Pelerin">Pèlerin</option>
-                                            <option value="Agent Comptoir">Agent Comptoir</option>
-                                            <option value="Agent hebergement">Agent d'hebergemet</option>
-                                            <option value="Agent transport">Agent de transport</option>
-                                            <option value="Agent permanence">Agent de permanence</option>
+                                            <option value="Agent_comptoir">Agent Comptoir</option>
+                                            <option value="Agent_hebergement">Agent d'hebergemet</option>
+                                            <option value="Agent_transport">Agent de transport</option>
+                                            <option value="Agent_permanence">Agent de permanence</option>
                                             <option value="Medecin">Medecin</option>
                                             <option value="Formateur">Formateur</option>
                                         </select>

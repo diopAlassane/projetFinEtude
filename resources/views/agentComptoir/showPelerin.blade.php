@@ -1,5 +1,5 @@
-@extends('layouts.master')
-@section('content')
+{{-- @extends('layouts.master')
+@section('content') --}}
 <div id="layoutSidenav_content" class="container bg-success">
     <section class="h-100 h-custom gradient-custom-2">
         <div class="container py-5 h-100">
@@ -63,4 +63,4 @@
         </div>
     </section>
 </div>
-@endsection
+{{-- @endsection --}}

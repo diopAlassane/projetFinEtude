@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nature');
             $table->string('date_reception');
+            $table->string('pelerin_name');
             $table->timestamps();
         });
     }

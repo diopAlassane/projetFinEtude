@@ -11,6 +11,7 @@ class Car extends Model
 
     protected $fillable = [
         'nature',
-        'date_reception'
+        'date_reception',
+        'pelerin_name'
     ];
 }

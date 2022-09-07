@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PelerinStoreRequest;
 use App\Models\Pelerin;
+use PDF;
 use Illuminate\Http\Request;
 
 class PelerinController extends Controller
@@ -21,6 +22,14 @@ class PelerinController extends Controller
         ->get();
         return view('agentComptoir.allPelerin', compact('pelerins', 'search'));
     }
+
+    public function createPDF(Pelerin $pelerin){
+        $pelerins = Pelerin::all();
+
+        $pdf = PDF::loadView('agentComptoir.pdf_view', compact('pelerins'));
+        return $pdf->download('liste_pelerins.pdf');
+
+      }
 
     /**
      * Show the form for creating a new resource.

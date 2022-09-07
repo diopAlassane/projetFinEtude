@@ -19,6 +19,7 @@
                 <nav class="navbar navbar-light bg-light mb-3">
                     <div class="container-fluid">
                         <a href="{{route('addPelerin')}}" class="btn btn-primary btn-sm p-2 mb-1">NOUVEAU</a>
+                        <a class="btn btn-primary" target="_blank" href="{{ route('agentComptoir.pdf_view')}}">IMPRIMER</a>
                         <form class="d-flex" action="">
                             <input class="form-control me-2" name="search" value="{{ old('search', $search) }}" type="search" placeholder="Saisir..."
                                 aria-label="Search">

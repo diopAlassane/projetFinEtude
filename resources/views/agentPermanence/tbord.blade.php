@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>TASNIM VOYAGE | PELERIN</title>
+    <title>TASNIM VOYAGE | AGENT PERMANENCE</title>
     {{--
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> --}}
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style1.css">
     <script src="fontawesome/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -45,49 +44,50 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link text-light" href="{{route('infosPelerin')}}">Consulter mes informations</a>
-                                <a class="nav-link text-light" href="{{route('coursPelerin')}}">Consulter un cours</a>
-                                <a class="nav-link text-light" href="{{route('plainteForm')}}">Deposer une plainte</a>
+                                <a class="nav-link text-light" href="{{route('bordPermanence')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt text-light"></i></div>
+                                    Tableau de bord
+                                </a>
+                                <a class="nav-link text-light" href="{{route('pelerinPermanence')}}">Consulter la liste
+                                    des pelerins</a>
+                                <a class="nav-link text-light" href="{{route('plainte')}}">Consulter les plaintes</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
+                        <a class="nav-link text-light" href="{{route('signout')}}"><i
+                                class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
 
-                        </div>
+                    </div>
                 </div>
 
             </nav>
         </div>
         <div id="layoutSidenav_content">
-
-            <div class="container mt-3">
-                <div class="card bg-light mb-5">
-                    <h2 style="text-align: center;font-size:30px;">La liste des cours</h2>
+            <div class="container-fluid px-4 mt-90">
+                <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-warning text-white mb-4">
+                        <div class="card-body">Consulter les plaintes</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="{{route('plainte')}}">Voir les
+                                détails</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
                 </div>
-
-                <table class="table table-hover">
-                    <thead>
-                        <tr class="bg-light">
-                            <th>#</th>
-                            <th>Titre</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($cours as $item)
-
-                        <tr>
-                            <td>{{$item->id}}</td>
-                            <td>{{$item->titre}}</td>
-                            <td>{{$item->description}}</td>
-
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body">Consulter les pèlerins</div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="{{route('pelerinPermanence')}}">Voir les
+                                détails</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
+            </div>
         </div>
     </div>
     <script src="js/bootstrap.bundle.min.js"></script>

@@ -44,19 +44,18 @@
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link text-light" href="{{route('bordPermanence')}}">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt text-light"></i></div>
+                                    Tableau de bord
+                                </a>
                                 <a class="nav-link text-light" href="{{route('pelerinPermanence')}}">Consulter la liste des pelerins</a>
                                 <a class="nav-link text-light" href="{{route('plainte')}}">Consulter les plaintes</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link collapsed text-light" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket text-light"></i>
-                            </div>
-                            Se déconnecter
+                        <a class="nav-link text-light" href="{{route('signout')}}"><i class="fa-solid fa-right-from-bracket text-light"></i>Se déconnecter</a>
 
-                        </a>
                     </div>
                 </div>
 

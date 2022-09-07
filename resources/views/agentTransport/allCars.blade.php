@@ -46,6 +46,7 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link text-light" href="{{route('addCar')}}">Ajouter un car</a>
                                 <a class="nav-link text-light" href="{{route('allCars')}}">Liste des cars</a>
+                                <a class="nav-link text-light" href="{{route('listPelerin')}}">Liste des pèlerins</a>
                             </nav>
                         </div>
 
@@ -85,6 +86,7 @@
                             <th>#</th>
                             <th>Nature</th>
                             <th>Date de reception</th>
+                            <th>Affectation</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,7 +96,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->nature}}</td>
                             <td>{{$item->date_reception}}</td>
-
+                            <td>{{$item->pelerin_name}}</td>
                         </tr>
                         @endforeach
                     </tbody>

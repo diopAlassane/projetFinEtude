@@ -7,6 +7,9 @@ use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\PelerinController;
+use App\Http\Controllers\HomeController;
+use App\Models\Pelerin;
 use App\Models\Utilisateur;
 
 class CustomAuthController extends Controller
@@ -52,13 +55,25 @@ class CustomAuthController extends Controller
         $credentials = $request->only('identifiant', 'password');
         if (Auth::attempt($credentials)) {
 
-            $role = Auth::user()->identifiant;
-            // $role = Auth::user()->type_user; //Redirection aprés authentification
+            // $role = Auth::user()->identifiant;
+            $role = Auth::user()->type_user; //Redirection aprés authentification
 
-                if($role === "tsika"){
+                if($role === "Administrateur"){
                     return view('admin.index');
-                }else if($role === "joop"){
+                }else if($role === "Agent_comptoir"){
                     return view('agentComptoir.addPelerin');
+                }else if($role === "Agent_hebergement"){
+                    return view('agentHebergement.addHotel');
+                }else if($role === "Pelerin"){
+                    return view('pelerin.depotPlainte');
+                }else if($role === "Medecin"){
+                    return view('medecin.addMedoc');
+                }else if ($role === "Formateur"){
+                    return view('formateur.addCourses');
+                }else if ($role === "Agent_transport"){
+                    return view('agentTransport.addCar');
+                }else if($role === "Agent_permanence"){
+                    return view('agentPermanence.tbord');
                 }else{
                     return view('auth.login');
                 }
@@ -73,8 +88,9 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
+        $pelerins = Pelerin::all();
         $utilisateur = Utilisateur::all();
-        return view('auth.registration', compact('utilisateur'));
+        return view('auth.registration', compact('utilisateur', 'pelerins'));
     }
 
     public function customRegistration(Request $request)
